@@ -1,0 +1,53 @@
+
+<div *ngIf="productObj;else noProductObj">
+    <mat-card class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img mat-card-xl-image [src]="productObj.images" [alt]="productObj.pname" [title]="productObj.pname">
+            </div>
+            <div class="col-md-8">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{productObj.pname}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{productObj.brand}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{productObj.productDescription}}
+                    </p>
+                    <p>
+                        Price : ${{productObj.price}}
+                    </p>
+                    <p>
+                        Status : <strong>{{productObj.pstatus}}</strong>
+                    </p>
+                    <div class="rating">
+                        <i *ngFor="let star of fullStars" class="fas fa-star"></i>
+                        <i *ngIf="halfStar" class="fas fa-star-half-alt"></i>
+                        <i *ngFor="let star of emptyStar" class="fa-regular fa-star"></i>
+                        <span>({{productObj.rating}} / 5 )</span>
+                    </div>
+                </mat-card-content>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+<ng-template #noProductObj>
+    <p class="alert alert-warning">
+        No Products Data Available!!!
+    </p>
+</ng-template>
+
+<hr>
+
+<button mat-flat-button color="accent" routerLink="editProduct" [queryParamsHandling]="'preserve'" class="mr-2">
+    Edit Product
+</button>
+
+<button mat-flat-button color="warn" (click)="onProductRemove()">
+    Remove Product
+</button>

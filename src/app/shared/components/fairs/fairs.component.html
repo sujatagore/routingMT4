@@ -1,0 +1,19 @@
+
+<h2 class="heading">
+    Fairs
+</h2>
+
+<div class="row" *ngIf="fairsData.length > 0;else noFair">
+    <div class="col-md-4">
+        <app-faircards *ngFor="let fair of fairsData" [fairObj]="fair"></app-faircards>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<ng-template #noFair> 
+    <p class="alert alert-warning">
+        No Fairs Data Available
+    </p>
+</ng-template>

@@ -1,0 +1,31 @@
+.card{
+    color: white;
+    background-image: linear-gradient(90deg, #187658, 0%, #156E72 100%);
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgb(24, 118, 88);
+    border: 2px solid black;
+
+    .content{
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    &.active{
+        &::after{
+            content: '';
+            width: 25px;
+            height: 25px;
+            background: #156E72;
+            position: absolute;
+            top: 65%;
+            right: -15px;
+            transform: translateY(-45px) rotate(45deg);
+        }
+    }
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}

@@ -1,0 +1,14 @@
+
+.mat-list-item{
+    cursor: pointer;
+}
+
+.mat-list-item:hover{
+    transform: translateY(-5px);
+    background-color: aqua;
+}
+
+.active{
+    background-color: red;
+    color: white;
+}
